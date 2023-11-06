@@ -1,16 +1,16 @@
 #ifndef HELPERS_H
 #define HELPERS_H
 
-/* Prompt to be printed */
-#define PROMPT_MSG "$" /* Needed to work with signal */
+/* printed prompt */
+#define PROMPT_MSG "$" /* work with signal */
 
-/* Resume from the unused attibute */
+/* Resume frm unused attibute */
 #define UNUSED __attribute__((unused))
 
-/* buffer size for each read call in _getline */
+/* buff size for each read call in the_getline */
 #define BUFFER_SIZE 1024
 
-/************* FORMATTED STRING FOR HELP BUILT IN **************/
+/************* FORMATTED STRING to HELP BUILT iN **************/
 
 #define HELP_CD_MSG "cd=\n"\
 "cd:\tcd [dir]\n\n"\
