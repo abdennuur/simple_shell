@@ -206,19 +206,19 @@ int the_print_error(int errorcode, data_of_program *data);
 
 /*======== the_helpers_string.c ========*/
 
-/* Counts the number of characters of a string */
+/* Count nbr of chars of str */
 int str_length(char *string);
 
-/* Duplicates an string */
+/* Dupl a str */
 char *str_duplicate(char *string);
 
-/* Compares two strings */
+/* Comp 2 strs */
 int str_compare(char *string1, char *string2, int number);
 
-/* Concatenates two strings */
+/* Concat 2 strs */
 char *str_concat(char *string1, char *string2);
 
-/* Reverse a string */
+/* Reverse str */
 void str_reverse(char *string);
 
 
