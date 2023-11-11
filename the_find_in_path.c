@@ -3,7 +3,7 @@
 int the_check_file(char *full_path);
 
 /**
- * the_find_program - finds program in path
+ * the_find_program - finds the program in path
  * @data: a pntr to program's data
  * Return: 0 success, errorcode Otherwise
  */
