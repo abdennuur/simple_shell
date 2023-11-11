@@ -3,7 +3,7 @@
  * main - initialize vars of program
  * @argc: nbr of values received from command line
  * @argv: values received from command line
- * @env: nbr of values received from command line
+ * @env: number of values received from command line
  * Return: 0 --> succes
  */
 int main(int argc, char *argv[], char *env[])
