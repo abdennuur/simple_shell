@@ -2,7 +2,7 @@
 
 /**
  * the_builtins_list - search for a match and execute associate builtin
- * @data: struct for  program's data
+ * @data: struct for  program's data.
  * Return: the return of the function executed if there is a match,
  * otherwise return -1.
  **/
