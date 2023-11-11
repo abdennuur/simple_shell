@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * the_long_to_string - converts nbr to a str
+ * the_long_to_string - converts a nbr to a str
  * @number: number to be convert in an str
  * @string: buff to save the nbr as str
  * @base: base to convert nbr
