@@ -2,7 +2,7 @@
 /**
  * the_execute - execute the command with entire path variables
  * @data: a ptr to program's data
- * Return: sucess returns 0 , otherwise return -1.
+ * Return: sucess returns 0 else return -1.
  */
 int the_execute(data_of_program *data)
 {
