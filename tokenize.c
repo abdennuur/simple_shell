@@ -1,8 +1,8 @@
 #include "shell.h"
 /**
- * tokenize - this function separate the string using a designed delimiter
- * @data: a pointer to the program's data.
- * Return: an array of the different parts of the string
+ * tokenize - function to separa str using designed delimiter
+ * @data: a ptr to program data
+ * Return: arr of different parts of str
  */
 void tokenize(data_of_program *data)
 {
