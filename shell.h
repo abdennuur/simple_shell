@@ -59,8 +59,8 @@ typedef struct builtins
 
 /*========  shell_main.c  ========*/
 
-/* Inicializestruct with Info the program */
-void the_inicialize_data(data_of_program *data, int arc, char *argv[], char **env);
+/* inicialize struct with inf the program */
+void init_data(data_of_program *data, int arc, char *argv[], char **env);
 
 /* Makes infinite loop to show the prompt*/
 void the_sisifo(char *prompt, data_of_program *data);
@@ -86,7 +86,7 @@ void expnd_variables(data_of_program *data);
 /* expand aliases */
 void expnd_alias(data_of_program *data);
 
-/* append the str to the end of the buffer*/
+/* append the str to the end of the buff*/
 int buff_add(char *buffer, char *str_to_add);
 
 

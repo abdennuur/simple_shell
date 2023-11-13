@@ -90,7 +90,7 @@ int the_set_alias(char *alias_string, data_of_program *data)
 			break;
 		}
 
-	/* Iterates through alias list and check for coincidence of the variable name */
+	/* itrtr through alias lst and check for coincidence of the var name */
 	for (ji = 0; data->alias_list[ji]; ji++)
 		if (str_compare(buff, data->alias_list[ji], ix) &&
 			data->alias_list[ji][ix] == '=')
