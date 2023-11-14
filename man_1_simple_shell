@@ -1,110 +1,101 @@
-.TH SHELLBY 1 "August 2022" "ALX School" "0x16. C - Simple Shell"
+.TH ORATOR 1 "November 2023" "ALX School" "0x16. C - Simple Shell"
 .SH NAME
-.B shellby\fR \- simple UNIX command interpreter
+.B orator\fR \- the UNIX Virtuoso
 .SH SYNOPSIS
-.B shellby\fR [\fIfilename\fR]
+.B orator\fR [\fIfilename\fR]
 .SH DESCRIPTION
-.B Shellby\fR is a simple UNIX command language interpreter that reads commands from either a file or standard input and executes them.
+.B Orator\fR, the UNIX Virtuoso, is not just a command interpreter; it's a maestro orchestrating the sublime symphony of your digital compositions.
 
 .B Invocation
 .in +2n
-\fBShellby\fR can be invoked both interactively and non-interactively.
-If \fBshellby\fR is invoked with standard input not connected to a terminal, it reads and executes received commands in order.
+Invoke \fBOrator\fR to experience the euphony of command execution, whether interactively or as a serene composition in script form.
 
-If \fBshellby\fR is invoked with standard input connected to a terminal (determined by \fIisatty(3)\fR), an \fIinteractive\fR shell is opened.
-When executing interactively, \fBshellby\fR displays the prompt \fI$ \fR when it is ready to read a command.
+If summoned with standard input detached from a terminal, \fBOrator\fR serenades the commands methodically.
 
-Alternatively, if command line arguments are supplied upon invocation, \fBshellby\fR treats the first argument as a file from which to read commands.
-The supplied file should contain one command per line.
-.B Shellby\fR runs each of the commands contained in the file in order before exiting.
+When summoned with standard input connected to a terminal, \fBOrator\fR unveils its interactive persona, adorned with a prompt \fI$ \fR, ready for the next command.
+
+Alternatively, when a symphony of commands is presented as arguments, \fBOrator\fR conducts each command in succession, creating a harmonious crescendo before taking a bow and gracefully exiting.
 .in
 
 .B Environment
 .in +2n
-Upon invocation, \fBshellby\fR receives and copies the environment of the parent process in which it was exeucted.
-This \fBenvironment\fR is an array of \fIname-value\fR strings describing variables in the format \fINAME=VALUE\fR.
+Upon invocation, \fBOrator\fR inherits the environment, crafting an intricate tapestry of variables in the format \fINAME=VALUE\fR.
 .in
 
-.B Command Execution
+.B Command Harmony
 .in +2n
-After receiving a command, \fBshellby\fR tokenizes it into words using \fB" "\fR as a delimiter.
-The first word is considered the command and all remaining words are considered arguments to that command.
-.B Shellby\fR then proceeds with the following actions:
+As \fBOrator\fR receives a command, it metamorphoses into a virtuoso, unraveling it into a symphony of words, each playing a unique role.
 
 .RS
-1. If the first character of the command is neither a slash (\fI\\\fR) nor dot (\fI.\fR), the shell searches for it in the list of shell builtins.
-If there exists a shell builtin by that name, the builtin is invoked.
+1. If the command's first note lacks a slash (\fI/\fR) or a dot (\fI.\fR), \fBOrator\fR searches its repertoire of built-in melodies. If a melody matches, the virtuoso performs it with finesse.
 .RE
 
 .RS
-2. If the first character of the command is none of a slash (\fI\\\fR), dot (\fI.\fR), nor builtin, \fBshellby\fR searches each element of the
-\fBPATH\fR environmental variable for a directory containing an executable file by that name.
+2. If the command's initial note refrains from brandishing a slash (\fI/\fR), dot (\fI.\fR), or built-in melody, \fBOrator\fR explores each element of the \fBPATH\fR symphony, seeking a directory that resonates with an executable file of that name.
 .RE
 
 .RS
-3. If the first character of the command is a slash (\fI\\\fR) or dot (\fI.\fR) or either of the above searches was successful,
-the shell executes the named program with any remaining arguments given in a separate execution environment.
+3. If the command's first note proudly bears a slash (\fI/\fR) or a dot (\fI.\fR), or either of the prior searches strikes a chord, \fBOrator\fR orchestrates the named program with the remaining notes in a separate execution venue.
 .RE
 
-.B Exit Status
+.B Exit Sonata
 .in +2n
-.B Shellby\fR returns the exit status of the last command executed, unless a syntax error occurs, with zero indicating success and non-zero indicating failure.
+As \fBOrator\fR concludes its performance, the audience witnesses the serene exit, and the virtuoso reveals the status of the last command. Zero signifies a harmonious success, while non-zero notes indicate a discordant failure.
 
-If a command is not found, the return status is 127; if a command is found but is not executable, the return status is 126.
+If a command remains elusive, the return status is 127. If a command is found but lacks the melody of executability, the return status is 126.
 
-All builtins return zero on success and one or two on incorrect usage (indicated by a corresponding error message).
+Built-ins, like virtuosic solos, return zero on success and one or two on incorrect usage, accompanied by an apt error message.
 .in
 
-.B Signals
+.B Signals of Symphony
 .in +2n
-While running in interactive mode, \fBshellby\fR ignores the keyboard input \fBCtrl+c\fR.
-Alternatively, an input of end-of-file (\fBCtrl+d\fR) will exit the program.
+In the grand theater of interactivity, \fBOrator\fR gracefully handles \fBCtrl+c\fR, turning it into a subtle pause in the symphony. Alternatively, an utterance of end-of-file (\fBCtrl+d\fR) serves as a gentle curtain fall.
 .in
 
-.B Variable Replacement
+.B Enchantment of Variables
 .in +2n
-.B Shellby\fR inerprets the \fI$\fR character for variable replacement:
+.B Orator\fR enchants the \fI$\fR character for variable sorcery:
 
 .RS
-.B $ENV_VARIABLE\fR	\fIENV_VARIABLE\fR is subsituted with its value.
+.B $ENV_VARIABLE\fR	\fIENV_VARIABLE\fR is magically substituted with its value.
 .RE
 
 .RS
-.B $?\fR			\fI?\fR is substituted with the return value of the last program executed.
+.B $?\fR			\fI?\fR is mystically substituted with the return value of the last program executed.
 .RE
 
 .RS
-.B $$\FR			The second \fI$\fR is substituted with the current process ID.
+.B $$\FR			The second \fI$\fR is enchantingly substituted with the current process ID.
 .RE
 
-.B Comments
+.B Harmony of Comments
 .in +2n
-.B Shellby\fR ignores all words and characters preceeded by a \fI#\fR character on a line.
+.B Orator\fR gracefully tunes out words and characters preluded by a \fI#\fR, transforming them into silent whispers in the symphony.
 .in
 
-.B Operators
+.B Operators of Sonata
 .in +2n
 
 .RS
-.B ;\fR - Command separator
+.B ;\fR - Command cadence
 .RS
-Commands separated by a \fI;\fR are executed sequentially.
+Commands separated by a \fI;\fR are melodiously executed in sequence.
 .RE
 
-.B &&\fR - AND logical operator
+.B &&\fR - AND harmonic operator
 .RS
-.I command1\fR && \fIcommand2\fR: \fIcommand2\fR is executed if, and only if, \fIcommand1\fR returns an exit status of zero.
+.I command1\fR && \fIcommand2\fR: \fIcommand2\fR harmonizes only if \fIcommand1\fR echoes an exit status of zero.
 .RE
 
-.B ||\fR - OR logical operator
+.B ||\fR - OR harmonic operator
 .RS
-.I command1\fR || \fIcommand2\fR: \fIcommand2\fR is executed if, and only if, \fIcommand1\fR returns a non-zero exit status.
+.I command1\fR || \fIcommand2\fR: \fIcommand2\fR resonates only if \fIcommand1\fR echoes a non-zero exit status.
 .RE
 
-The operators \fI&&\fR and \fI||\fR have equal precedence, followed by \fI;\fR.
+The operators \fI&&\fR and \fI||\fR share equal prominence, followed by the gentle \fI;\fR.
 .RE
 
-.B Shellby Builtin Commands
+.B Orator's Builtin Arias
 .in +2n
 
 .RS
@@ -112,69 +103,36 @@ The operators \fI&&\fR and \fI||\fR have equal precedence, followed by \fI;\fR.
 .RS
 Usage: .B cd [DIRECTORY]
 
-Changes the current directory of the process to \fBDIRECTORY\fR.
+Embark on a melodic journey to \fBDIRECTORY\fR, altering the current directory of the process.
 
-If no argument is given, the command is interpreted as \fBcd $HOME\fR.
+If no argument is given, the command takes the form \fBcd $HOME\fR.
 
-If the argument \fB-\fR is given, the command is interpreted as \fBcd $OLDPWD\fR.
+If the argument \fB-\fR is voiced, the command is interpreted as \fBcd $OLDPWD\fR.
 
-The environment variables \fBPWD\fR and \fBOLDPWD\fR are updated after a change of directory.
+The environmental harmonies \fBPWD\fR and \fBOLDPWD\fR are refreshed after a change of directory.
 .RE
 
 .B alias
 .RS
 Usage: \fBalias [NAME[='VALUE'] ...]\fR
 
-Handles aliases.
+Conducts aliases.
 
-.I alias\fR: Prints a list of all aliases, one per line, in the form \fINAME='VALUE'\fR.
+.I alias\fR: Echoes a symphony of all aliases, one per line, in the form \fINAME='VALUE'\fR.
 
-.I alias NAME [NAME2 ...]\fR: Prints the aliases \fINAME\fR, \fINAME2\fR, etc. one per line, in the form \fINAME='VALUE'\fR.
+.I alias NAME [NAME2 ...]\fR: Echoes the aliases \fINAME\fR, \fINAME2\fR, etc., one per line, in the form \fINAME='VALUE'\fR.
 
-.I alias NAME='VALUE' [...]\fR: Defines an alias for each \fINAME\fR whose \fIVALUE\fR is given.
-If \fIname\fR is already an alias, its value is replaced with \fIVALUE\fR.
+.I alias NAME='VALUE' [...]\fR: Composes an alias for each \fINAME\fR whose \fIVALUE\fR is given.
+If \fIname\fR is already an alias, its melody is replaced with \fIVALUE\fR.
 .RE
 
 .B exit
 .RS
 Usage: \fBexit [STATUS]\fR
 
-Exits the shell.
+Brings the curtain down on the symphony.
 
-The \fBSTATUS\fR argument is the integer used to exit the shell.
+The \fBSTATUS\fR argument is the integer used to conclude the performance.
 
-If no argument is given, the command is interpreted as \fBexit 0\fR.
+If no argument is given, the command takes the form \fBexit 0\fR.
 .RE
-
-.B env
-.RS
-Usage: \fBenv\fR
-
-Prints the current environment.
-.RE
-
-.B setenv
-.RS
-Usage: \fBsetenv [VARIABLE] [VALUE]\fR
-
-Initializes a new environment variable, or modifies an existing one.
-
-Upon failure, prints a message to \fBstderr\fR
-.RE
-
-.B unsetenv
-.RS
-Usage: \fBunsetenv [VARIABLE]\fR
-
-Removes an environmental variable.
-
-Upon failure, prints a message to \fBstderr\fR.
-.RE
-.RE
-.in
-
-.SH SEE ALSO
-access(2), chdir(2), execve(2), _exit(2), exit(3), fflush(3), fork(2), free(3), isatty(3), getcwd(3), malloc(3), open(2), read(2), sh(1), signal(2), stat(2), wait(2), write(2)
-
-.B Shellby\fR emulates basic functionality of the \fBsh\fR shell.
-This man page borrows from the corresponding man pages sh(1) and dash(1).
